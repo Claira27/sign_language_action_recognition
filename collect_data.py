@@ -68,7 +68,6 @@ def extract_keypoints(results):
     lh =  np.array([[landmark.x, landmark.y, landmark.z] for landmark in results.left_hand_landmarks.landmark]).flatten() if results.left_hand_landmarks else np.zeros(21*3) # 21 landmarks for left hand
     rh =  np.array([[landmark.x, landmark.y, landmark.z] for landmark in results.right_hand_landmarks.landmark]).flatten()  if results.right_hand_landmarks else np.zeros(21*3) # 21 landmarks for right hand
     return np.concatenate([lh, rh]) # Concatenate left-hand & right-hand keypoints into a single array
-
 # Actions to recognize
 #actions = np.array(['hello', 'thanks', 'iloveyou'])
 #actions = np.array(['yes', 'no', 'please', 'sorry','goodbye'])
