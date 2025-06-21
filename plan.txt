@@ -1,0 +1,4 @@
+GOAL: realtime sign language detection using sequences
+1. extract holistic keypoint
+2. train an LSTM DL Model
+3. Make realtime predictions using sequences
