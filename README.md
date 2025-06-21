@@ -2,16 +2,13 @@
 
 Hệ thống nhận diện hành động ngôn ngữ ký hiệu bằng mô hình LSTM sử dụng **landmark tọa độ tay** trích xuất từ thư viện **MediaPipe** của Google. Dữ liệu đầu vào là chuỗi landmark của **right hand** và **left hand** với độ dài cố định 30 frame mỗi video. Mục tiêu là phân loại 21 hành động khác nhau thuộc ngôn ngữ ký hiệu thông dụng.
 
-- **Không sử dụng face** và **pose** landmark để giảm nhiễu và trọng số mô hình, vì dữ liệu thu được từ góc camera không chứa các khớp khác trong post và về cơ bản landmark mặt và pose không chủ đích khác biệt( không đóng góp và có thể chiếm trọng số lớn). Nhưng có thể tự tạo dữ liệu theo file collect_data.py và thay đổi dòng concatenate landmark tùy chỉnhn Language Action Recognition with Mediapipe + LSTM
-
-Hệ thống nhận diện hành động ngôn ngữ ký hiệu bằng mô hình LSTM sử dụng **landmark tọa độ tay** trích xuất từ thư viện **MediaPipe** của Google. Dữ liệu đầu vào là chuỗi landmark của **right hand** và **left hand** với độ dài cố định 30 frame mỗi video. Mục tiêu là phân loại 21 hành động khác nhau thuộc ngôn ngữ ký hiệu thông dụng.
+**Không sử dụng face** và **pose** landmark để giảm nhiễu và trọng số mô hình, vì dữ liệu thu được từ góc camera không chứa các khớp khác trong post và về cơ bản landmark mặt và pose không chủ đích khác biệt( không đóng góp và có thể chiếm trọng số lớn). Nhưng có thể tự tạo dữ liệu theo file collect_data.py bằng việc điều chỉnh biến actions và thay đổi dòng concatenate landmark tùy chỉnh trong hàm extract_landmarks().
 
 ## Thư viện sử dụng
 
 - [`mediapipe`](https://google.github.io/mediapipe/) – Trích xuất landmark bàn tay (Hand Landmarks)
 - `tensorflow` – Mô hình LSTM và huấn luyện
 - `numpy`, `opencv-python` – Xử lý dữ liệu và hình ảnh
-- `matplotlib` – Vẽ đồ thị (nếu cần)
 - `scikit-learn` – Tiền xử lý và chia tập dữ liệu
 
 ## Cấu trúc dữ liệu
@@ -30,8 +27,6 @@ hello/
 29.npy
 ...
 99/
-
-- **Không sử dụng face** và **pose** landmark để giảm nhiễu và trọng số mô hình, vì dữ liệu thu được từ góc camera không chứa các khớp khác trong post và về cơ bản landmark mặt và pose không chủ đích khác biệt( không đóng góp và có thể chiếm trọng số lớn). Nhưng có thể tự tạo dữ liệu theo file collect_data.py bằng việc điều chỉnh biến actions và thay đổi dòng concatenate landmark tùy chỉnh trong hàm extract_landmarks().
 
 ## Mô hình huấn luyện
 ```
